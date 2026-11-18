@@ -13,16 +13,13 @@ nav button.active{background:white;color:#be185d}
 header{background:linear-gradient(135deg,#be185d,#ec4899);color:white;padding:20px;text-align:center}
 .motto{background:white;color:#be185d;padding:5px 15px;border-radius:20px;display:inline-block;font-weight:bold;margin-top:8px}
 .card{background:white;margin:10px;padding:15px;border-radius:14px;max-width:1100px;margin-left:auto;margin-right:auto;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.stat{padding:14px;border-radius:12px;color:white;text-align:center}
-.stat b{font-size:20px;display:block}
-input,select,textarea{width:100%;padding:10px;margin:5px 0;border:1px solid #fbcfe8;border-radius:8px}
+input,select{width:100%;padding:10px;margin:5px 0;border:1px solid #fbcfe8;border-radius:8px}
 table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
 th,td{border:1px solid #fce7f3;padding:7px;text-align:left}
 th{background:#be185d;color:white}
-.btn{padding:8px 13px;border:none;border-radius:18px;font-weight:bold;cursor:pointer;margin:3px;font-size:12px;color:white;background:#be185d}
+.btn{padding:7px 12px;border:none;border-radius:18px;font-weight:bold;cursor:pointer;margin:3px;font-size:12px;color:white;background:#be185d}
 .btn-green{background:#16a34a}.btn-blue{background:#2563eb}.btn-red{background:#dc2626}
 .page{display:none}.page.active{display:block}
-.badge{padding:2px 8px;border-radius:12px;color:white;font-size:10px}
 </style>
 </head>
 <body>
@@ -30,7 +27,7 @@ th{background:#be185d;color:white}
 <button id="b-dashboard" class="active" onclick="go('dashboard')">Home</button>
 <button id="b-students" onclick="go('students')">Students</button>
 <button id="b-attendance" onclick="go('attendance')">Attendance</button>
-<button id="b-results" onclick="go('results')">Results</button>
+<button id="b-results" class="active" onclick="go('results')">Results</button>
 <button id="b-finance" onclick="go('finance')">Finance</button>
 <button id="b-parents" onclick="go('parents')">Parents</button>
 </nav>
@@ -40,108 +37,48 @@ th{background:#be185d;color:white}
 <p style="font-size:12px;margin-top:6px">Admin: 0748162472 | markmaron2343@gmail.com</p>
 </header>
 
-<div id="dashboard" class="page active">
-<div class="card">
-<h3>Welcome to <span style="color:#be185d">SHARON WA MARON COLLEGE</span></h3>
-<p style="color:#be185d;font-size:12px;font-weight:bold">Motto: Me with Badman Forever</p><br>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<div class="stat" style="background:#be185d"><b id="c1">0</b>Total Students</div>
-<div class="stat" style="background:#ec4899"><b id="c2">0</b>Present Today</div>
-<div class="stat" style="background:#16a34a"><b id="c3">0</b>Fees Collected</div>
-<div class="stat" style="background:#f59e0b"><b id="c4">0</b>Unpaid</div>
-</div>
-</div>
-<div class="card">
-<h4>Quick Actions</h4><br>
-<button class="btn" onclick="go('students')">+ Add Student</button>
-<button class="btn btn-blue" onclick="go('attendance')">Mark Attendance</button>
-<button class="btn btn-green" onclick="go('results')">Enter Results</button>
-<a class="btn" style="background:#be185d;text-decoration:none" href="https://wa.me/256748162472?text=Hello%20Sharon%20wa%20Maron%20College">WhatsApp: 0748162472</a>
-</div>
-</div>
+<div id="dashboard" class="page"><div class="card"><h3>Welcome to SHARON WA MARON</h3><p><b id="c1">0</b> Students</p><br><button class="btn" onclick="go('students')">Students</button><button class="btn btn-red" onclick="clearAll()">🗑️ Clear All Data</button></div></div>
 
 <div id="students" class="page">
 <div class="card">
-<h3>Add Student - SHARON WA MARON</h3><br>
-<input id="sName" placeholder="Student Name">
-<input id="sClass" placeholder="Class e.g. S2">
-<input id="sParent" placeholder="Parent Name">
-<input id="sPhone" placeholder="Parent WhatsApp 748162472">
-<input id="sEmail" placeholder="Parent Email">
-<input id="sFees" type="number" placeholder="Fees UGX 500000">
-<button class="btn btn-green" onclick="addSt()">Save Student</button>
-<button class="btn btn-blue" onclick="addDemo()">Add 3 Demo Students (to test)</button>
+<h3>Add Student</h3><br>
+<input id="sName" placeholder="Name e.g. Mbabazi Sharon"><input id="sClass" placeholder="Class e.g. S4"><input id="sParent" placeholder="Parent"><input id="sPhone" placeholder="Phone"><input id="sFees" type="number" placeholder="Fees"><button class="btn btn-green" onclick="addSt()">Save</button>
 </div>
-<div class="card"><h3>All Students</h3><table><thead><tr><th>Name</th><th>Class</th><th>Parent</th><th>Phone</th><th>Del</th></tr></thead><tbody id="stTable"></tbody></table></div>
+<div class="card"><table><thead><tr><th>Name</th><th>Class</th><th>Del</th></tr></thead><tbody id="stTable"></tbody></table></div>
 </div>
 
-<div id="attendance" class="page">
-<div class="card"><h3>Attendance - <span id="today"></span></h3><br><select id="attClass" onchange="loadAtt()"><option>Select Class</option></select><table><thead><tr><th>Name</th><th>Status</th><th>Mark</th></tr></thead><tbody id="attTable"></tbody></table><br><button class="btn btn-blue" onclick="alert('Saved!')">Save Attendance</button></div>
-</div>
+<div id="attendance" class="page"><div class="card"><h3>Attendance - <span id="today"></span></h3><select id="attClass" onchange="loadAtt()"></select><table><thead><tr><th>Name</th><th>Status</th><th>Mark</th></tr></thead><tbody id="attTable"></tbody></table></div></div>
 
-<div id="results" class="page">
+<div id="results" class="page active">
 <div class="card"><h3>Results</h3><br><select id="rSt"></select><input id="rSub" placeholder="Subject"><input id="rSc" type="number" placeholder="Score /100"><button class="btn" onclick="addR()">Add</button></div>
-<div class="card"><table><thead><tr><th>Student</th><th>Subject</th><th>Score</th><th>Grade</th></tr></thead><tbody id="rTable"></tbody></table></div>
+<div class="card"><h3>Results - Tap Delete to remove duplicates</h3><table><thead><tr><th>Student</th><th>Subject</th><th>Score</th><th>Grade</th><th>Delete</th></tr></thead><tbody id="rTable"></tbody></table><br><button class="btn btn-red" onclick="clearResults()">🗑️ Delete All Results</button></div>
 </div>
 
-<div id="finance" class="page">
-<div class="card"><h3>Finance</h3><br><select id="fSt"></select><input id="fAmt" type="number" placeholder="Amount Paid"><button class="btn btn-green" onclick="addF()">Record</button></div>
-<div class="card"><table><thead><tr><th>Name</th><th>Total</th><th>Paid</th><th>Balance</th></tr></thead><tbody id="fTable"></tbody></table></div>
-</div>
-
-<div id="parents" class="page">
-<div class="card" style="text-align:center"><h3>❤️ SHARON WA MARON COLLEGE ❤️</h3><p style="color:#be185d;font-weight:bold">Me with Badman Forever</p><p>Admin: 0748162472</p><p>markmaron2343@gmail.com</p><br><a class="btn" href="https://wa.me/256748162472">WhatsApp Admin</a><a class="btn btn-blue" href="mailto:markmaron2343@gmail.com">Email Admin</a></div>
-</div>
+<div id="finance" class="page"><div class="card"><h3>Finance</h3><select id="fSt"></select><input id="fAmt" type="number" placeholder="Amount"><button class="btn btn-green" onclick="addF()">Add</button></div><div class="card"><table><thead><tr><th>Name</th><th>Total</th><th>Paid</th><th>Bal</th><th>Del</th></tr></thead><tbody id="fTable"></tbody></table></div></div>
+<div id="parents" class="page"><div class="card" style="text-align:center"><h3>❤️ SHARON WA MARON ❤️</h3><p>Me with Badman Forever</p><p>0748162472</p></div></div>
 
 <script>
-var students = JSON.parse(localStorage.getItem('sharon2')||'[]');
-var atts = JSON.parse(localStorage.getItem('sharon_att2')||'{}');
-var ress = JSON.parse(localStorage.getItem('sharon_res2')||'[]');
-var pays = JSON.parse(localStorage.getItem('sharon_pay2')||'[]');
+var students=JSON.parse(localStorage.getItem('sharon2')||'[]');
+var atts=JSON.parse(localStorage.getItem('sharon_att2')||'{}');
+var ress=JSON.parse(localStorage.getItem('sharon_res2')||'[]');
+var pays=JSON.parse(localStorage.getItem('sharon_pay2')||'[]');
 document.getElementById('today').innerText=new Date().toDateString();
-function go(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-document.getElementById('b-'+id).classList.add('active');
-if(id=='students'||id=='dashboard') render();
-if(id=='attendance') loadAtt();
-if(id=='results') renderR();
-if(id=='finance') renderF();
-}
-function addSt(){
-var s={id:Date.now(),name:document.getElementById('sName').value,class:document.getElementById('sClass').value,parent:document.getElementById('sParent').value,phone:document.getElementById('sPhone').value,email:document.getElementById('sEmail').value,fees:Number(document.getElementById('sFees').value||0)};
-if(!s.name||!s.class){alert('Enter name and class');return;}
-students.push(s);save();render();document.getElementById('sName').value='';document.getElementById('sClass').value='';document.getElementById('sParent').value='';document.getElementById('sPhone').value='';document.getElementById('sEmail').value='';document.getElementById('sFees').value='';alert('Student saved to SHARON WA MARON!');
-}
-function addDemo(){
-students.push({id:1,name:'Sharon Nakato',class:'S2',parent:'Maron',phone:'0748162472',email:'markmaron2343@gmail.com',fees:500000});
-students.push({id:2,name:'Badman Junior',class:'S2',parent:'Maron',phone:'0748162472',email:'markmaron2343@gmail.com',fees:500000});
-students.push({id:3,name:'Sharon wa Maron',class:'S1',parent:'Sharon',phone:'0748162472',email:'markmaron2343@gmail.com',fees:400000});
-save();render();alert('3 Demo students added! Now tap Students again');
-}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));var btn=document.getElementById('b-'+id);if(btn)btn.classList.add('active');if(id=='students'||id=='dashboard')render();if(id=='attendance')loadAtt();if(id=='results')renderR();if(id=='finance')renderF();}
 function save(){localStorage.setItem('sharon2',JSON.stringify(students));localStorage.setItem('sharon_att2',JSON.stringify(atts));localStorage.setItem('sharon_res2',JSON.stringify(ress));localStorage.setItem('sharon_pay2',JSON.stringify(pays));}
-function render(){
-var tb=document.getElementById('stTable');tb.innerHTML='';
-var classes=new Set();
-students.forEach(function(st){classes.add(st.class);tb.innerHTML+='<tr><td>'+st.name+'</td><td>'+st.class+'</td><td>'+st.parent+'</td><td>'+st.phone+'</td><td><button class="btn btn-red" onclick="delS('+st.id+')">X</button></td></tr>'});
-var opt='';classes.forEach(function(c){opt+='<option>'+c+'</option>'});
-document.getElementById('attClass').innerHTML='<option value="">Select Class</option>'+opt;
-var sOpt=students.map(function(s){return '<option value="'+s.id+'">'+s.name+' - '+s.class+'</option>'}).join('');
-document.getElementById('rSt').innerHTML=sOpt;document.getElementById('fSt').innerHTML=sOpt;
-document.getElementById('c1').innerText=students.length;
-var today=new Date().toISOString().split('T')[0];var pres=0;for(var k in atts){if(k.startsWith(today)&&atts[k]=='present')pres++;}document.getElementById('c2').innerText=pres;
-var total=0;pays.forEach(function(p){total+=p.amount});document.getElementById('c3').innerText=total;
-var unpaid=0;students.forEach(function(st){var paid=0;pays.forEach(function(p){if(p.studentId==st.id)paid+=p.amount});if(paid<st.fees)unpaid++;});document.getElementById('c4').innerText=unpaid;
-}
-function delS(id){students=students.filter(function(s){return s.id!=id});save();render();}
-function loadAtt(){var cls=document.getElementById('attClass').value;var tb=document.getElementById('attTable');tb.innerHTML='';var today=new Date().toISOString().split('T')[0];students.filter(function(s){return s.class==cls}).forEach(function(s){var key=today+'_'+s.id;var st=atts[key]||'not marked';tb.innerHTML+='<tr><td>'+s.name+'</td><td>'+st+'</td><td><button class="btn btn-green" onclick="markA(\''+key+'\',\'present\')">Present</button><button class="btn btn-red" onclick="markA(\''+key+'\',\'absent\')">Absent</button></td></tr>'})}
-function markA(k,s){atts[k]=s;save();loadAtt();render();}
-function addR(){var sid=document.getElementById('rSt').value;var sub=document.getElementById('rSub').value;var sc=Number(document.getElementById('rSc').value);if(!sid)return alert('Select student');var st=students.find(function(x){return x.id==sid});var grade=sc>=80?'A':sc>=60?'B':sc>=40?'C':'F';ress.push({student:st.name,subject:sub,score:sc,grade:grade});save();renderR();}
-function renderR(){var tb=document.getElementById('rTable');tb.innerHTML='';ress.forEach(function(r){tb.innerHTML+='<tr><td>'+r.student+'</td><td>'+r.subject+'</td><td>'+r.score+'</td><td>'+r.grade+'</td></tr>'})}
-function addF(){var sid=document.getElementById('fSt').value;var amt=Number(document.getElementById('fAmt').value);if(!sid||!amt)return alert('Select and amount');pays.push({studentId:Number(sid),amount:amt});save();renderF();}
-function renderF(){var tb=document.getElementById('fTable');tb.innerHTML='';students.forEach(function(st){var paid=0;pays.forEach(function(p){if(p.studentId==st.id)paid+=p.amount});var bal=st.fees-paid;tb.innerHTML+='<tr><td>'+st.name+'</td><td>'+st.fees+'</td><td>'+paid+'</td><td>'+bal+'</td></tr>'})}
-render();
+function addSt(){var s={id:Date.now(),name:document.getElementById('sName').value,class:document.getElementById('sClass').value,parent:'',phone:'',fees:Number(document.getElementById('sFees').value||0)};if(!s.name||!s.class){alert('Enter name & class');return;}students.push(s);save();render();alert('Saved');}
+function render(){var tb=document.getElementById('stTable');tb.innerHTML='';var classes=new Set();students.forEach(function(st){classes.add(st.class);tb.innerHTML+='<tr><td>'+st.name+'</td><td>'+st.class+'</td><td><button class="btn btn-red" onclick="delS('+st.id+')">X</button></td></tr>'});var opt='';classes.forEach(function(c){opt+='<option>'+c+'</option>'});var ac=document.getElementById('attClass');if(ac)ac.innerHTML='<option value="">Select Class</option>'+opt;var sOpt=students.map(function(s){return '<option value="'+s.id+'">'+s.name+' - '+s.class+'</option>'}).join('');document.getElementById('rSt').innerHTML=sOpt;document.getElementById('fSt').innerHTML=sOpt;var c1=document.getElementById('c1');if(c1)c1.innerText=students.length;}
+function delS(id){students=students.filter(function(s){return s.id!=id});save();render();renderF();}
+function loadAtt(){var cls=document.getElementById('attClass').value;var tb=document.getElementById('attTable');tb.innerHTML='';var today=new Date().toISOString().split('T')[0];students.filter(function(s){return s.class==cls}).forEach(function(s){var key=today+'_'+s.id;var st=atts[key]||'not marked';tb.innerHTML+='<tr><td>'+s.name+'</td><td>'+st+'</td><td><button class="btn btn-green" onclick="markA(\''+key+'\',\'present\')">P</button><button class="btn btn-red" onclick="markA(\''+key+'\',\'absent\')">A</button></td></tr>'})}
+function markA(k,s){atts[k]=s;save();loadAtt();}
+function addR(){var sid=document.getElementById('rSt').value;var sub=document.getElementById('rSub').value;var sc=Number(document.getElementById('rSc').value);if(!sid||!sub){alert('Select student & subject');return;}var st=students.find(function(x){return x.id==sid});var grade=sc>=80?'A':sc>=60?'B':sc>=40?'C':'F';ress.push({student:st.name,subject:sub,score:sc,grade:grade});save();renderR();document.getElementById('rSub').value='';document.getElementById('rSc').value='';}
+function renderR(){var tb=document.getElementById('rTable');tb.innerHTML='';ress.forEach(function(r,i){tb.innerHTML+='<tr><td>'+r.student+'</td><td>'+r.subject+'</td><td>'+r.score+'</td><td>'+r.grade+'</td><td><button class="btn btn-red" onclick="delR('+i+')">Delete</button></td></tr>'})}
+function delR(i){if(confirm('Delete this result?')){ress.splice(i,1);save();renderR();}}
+function clearResults(){if(confirm('Delete ALL results?')){ress=[];save();renderR();}}
+function addF(){var sid=document.getElementById('fSt').value;var amt=Number(document.getElementById('fAmt').value);if(!sid||!amt)return alert('Select & amount');pays.push({studentId:Number(sid),amount:amt});save();renderF();}
+function renderF(){var tb=document.getElementById('fTable');tb.innerHTML='';students.forEach(function(st){var paid=0;pays.forEach(function(p){if(p.studentId==st.id)paid+=p.amount});var bal=st.fees-paid;tb.innerHTML+='<tr><td>'+st.name+'</td><td>'+st.fees+'</td><td>'+paid+'</td><td>'+bal+'</td><td><button class="btn btn-red" onclick="delF('+st.id+')">Clear</button></td></tr>'})}
+function delF(id){pays=pays.filter(function(p){return p.studentId!=id});save();renderF();}
+function clearAll(){if(confirm('Delete EVERYTHING? All students, results, finance?')){localStorage.clear();students=[];ress=[];pays=[];atts={};save();location.reload();}}
+render();renderR();renderF();
 </script>
 </body>
-</html>
+  </html>
