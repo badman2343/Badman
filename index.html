@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sharon wa Maron College - Me with Badman Forever</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#fdf2f8;color:#0f172a}
+nav{background:#be185d;color:white;padding:12px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;position:sticky;top:0;z-index:1000}
+nav button{background:#9d174d;color:white;border:1px solid #f472b6;padding:8px 12px;border-radius:20px;cursor:pointer;font-weight:bold;font-size:13px}
+nav button.active{background:white;color:#be185d}
+header{background:linear-gradient(135deg,#be185d,#ec4899,#f43f5e);color:white;padding:28px 18px;text-align:center}
+header h1{font-size:26px;letter-spacing:1px}
+header .motto{margin-top:8px;background:white;color:#be185d;display:inline-block;padding:6px 18px;border-radius:20px;font-weight:bold;font-size:14px}
+.card{background:white;margin:12px auto;padding:18px;border-radius:16px;box-shadow:0 2px 10px rgba(190,24,93,.08);max-width:1100px;border:1px solid #fce7f3}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat{padding:16px;border-radius:14px;color:white;text-align:center}
+.stat b{font-size:22px;display:block}
+input,select,textarea{width:100%;padding:11px;margin:6px 0;border:1px solid #fbcfe8;border-radius:10px;background:#fff1f2}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}
+th,td{border:1px solid #fce7f3;padding:8px;text-align:left}
+th{background:#be185d;color:white}
+.btn{background:#be185d;color:white;padding:9px 15px;border:none;border-radius:20px;cursor:pointer;font-weight:bold;margin:3px;font-size:12px}
+.btn-green{background:#16a34a}.btn-blue{background:#2563eb}.btn-red{background:#dc2626}
+.hidden{display:none}
+.badge{padding:3px 10px;border-radius:20px;font-size:10px;color:white;font-weight:bold}
+.present{background:#16a34a}.absent{background:#dc2626}.paid{background:#16a34a}.unpaid{background:#f59e0b}
+.heart{color:#be185d}
+</style>
+</head>
+<body>
+
+<nav>
+<button onclick="showPage('dashboard')" id="b-dashboard" class="active">Home</button>
+<button onclick="showPage('students')" id="b-students">Students</button>
+<button onclick="showPage('attendance')" id="b-attendance">Attendance</button>
+<button onclick="showPage('results')" id="b-results">Results</button>
+<button onclick="showPage('finance')" id="b-finance">Finance</button>
+<button onclick="showPage('parents')" id="b-parents">Parents</button>
+</nav>
+
+<header>
+<h1>🎓 SHARON WA MARON COLLEGE</h1>
+<div class="motto">❤️ Me with Badman Forever ❤️</div>
+<p style="margin-top:12px;font-size:13px;opacity:.95">School Management System | Admin: 0748162472 | markmaron2343@gmail.com</p>
+</header>
+
+<div id="dashboard" class="page">
+<div class="card">
+<h3>Welcome to <span class="heart">SHARON WA MARON COLLEGE</span></h3>
+<p style="font-size:13px;color:#be185d;margin-top:4px;font-weight:bold">Motto: Me with Badman Forever</p><br>
+<div class="grid">
+<div class="stat" style="background:#be185d"><b id="totalStudents">0</b>Total Students</div>
+<div class="stat" style="background:#ec4899"><b id="presentToday">0</b>Present Today</div>
+<div class="stat" style="background:#16a34a"><b id="totalCollected">0</b>Fees Collected</div>
+<div class="stat" style="background:#f59e0b"><b id="unpaidCount">0</b>Unpaid</div>
+</div>
+</div>
+<div class="card">
+<h3>Quick Actions</h3><br>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn" onclick="showPage('students')">+ Add Student</button>
+<button class="btn btn-blue" onclick="showPage('attendance')">Mark Attendance</button>
+<button class="btn btn-green" onclick="showPage('results')">Enter Results</button>
+<a class="btn btn-green" style="background:#be185d" href="https://wa.me/256748162472?text=Hello%20Sharon%20wa%20Maron%20College%20Me%20with%20Badman%20Forever">WhatsApp: 0748162472</a>
+</div>
+</div>
+</div>
+
+<div id="students" class="page hidden">
+<div class="card">
+<h3>Register Student - SHARON WA MARON COLLEGE</h3>
+<p style="font-size:12px;color:#be185d">Motto: Me with Badman Forever</p><br>
+<div class="grid" style="grid-template-columns:1fr 1fr">
+<input id="sName" placeholder="Student Full Name">
+<input id="sClass" placeholder="Class e.g. S1, S2, S3">
+<input id="sParent" placeholder="Parent/Guardian Name">
+<input id="sPhone" placeholder="Parent WhatsApp e.g. 748162472">
+<input id="sEmail" placeholder="Parent Email">
+<input id="sFees" type="number" placeholder="Total Fees UGX">
+</div>
+<button class="btn" onclick="addStudent()">Save to Sharon wa Maron College</button>
+</div>
+<div class="card"><h3>Students of Sharon wa Maron College</h3><div style="overflow:auto"><table><thead><tr><th>Name</th><th>Class</th><th>Parent</th><th>Contact</th><th>Action</th></tr></thead><tbody id="studentsTable"></tbody></table></div></div>
+</div>
+
+<div id="attendance" class="page hidden">
+<div class="card">
+<h3>SHARON WA MARON - Attendance <span id="todayDate"></span></h3>
+<p style="font-size:12px;color:#be185d">Me with Badman Forever</p><br>
+<select id="attClass" onchange="loadAttendance()"><option value="">Select Class</option></select>
+<div style="overflow:auto"><table><thead><tr><th>Student</th><th>Status</th><th>Action</th></tr></thead><tbody id="attTable"></tbody></table></div>
+<button class="btn btn-blue" onclick="saveAttendance()">Save Attendance</button>
+</div>
+</div>
+
+<div id="results" class="page hidden">
+<div class="card"><h3>SHARON WA MARON - Results</h3><br><div class="grid" style="grid-template-columns:1fr 1fr 1fr"><select id="resStudent"></select><input id="resSubject" placeholder="Subject"><input id="resScore" type="number" placeholder="Score /100"></div><button class="btn" onclick="addResult()">Add Result</button></div>
+<div class="card"><h3>Results - Sharon wa Maron College</h3><div style="overflow:auto"><table><thead><tr><th>Student</th><th>Subject</th><th>Score</th><th>Grade</th><th>Send to Parent</th></tr></thead><tbody id="resultsTable"></tbody></table></div></div>
+</div>
+
+<div id="finance" class="page hidden">
+<div class="card"><h3>SHARON WA MARON - Finance</h3><br><div class="grid" style="grid-template-columns:1fr 1fr"><select id="finStudent"></select><input id="finAmount" type="number" placeholder="Amount Paid UGX"></div><button class="btn btn-green" onclick="addPayment()">Record Payment</button></div>
+<div class="card"><h3>Fees Status</h3><div style="overflow:auto"><table><thead><tr><th>Student</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th><th>Remind</th></tr></thead><tbody id="financeTable"></tbody></table></div></div>
+</div>
+
+<div id="parents" class="page hidden">
+<div class="card">
+<h3>Parent Communication - SHARON WA MARON COLLEGE</h3>
+<p style="font-size:12px;color:#be185d;font-weight:bold">Motto: Me with Badman Forever</p>
+<p style="font-size:13
