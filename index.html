@@ -10,17 +10,15 @@ body{background:#fff0f5}
 nav{background:#1e3a8a;color:white;text-align:center;padding:14px}
 nav a{color:white;text-decoration:none;margin:0 14px;font-weight:bold;font-size:14px}
 .header-blue{background:#1e3a8a;color:white;text-align:center;padding:12px 10px}
-.header-blue p{font-size:13px}
 section{max-width:800px;margin:12px auto;background:white;padding:0;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
 .inner{padding:14px}
-.poster-pink{background:linear-gradient(135deg,#ff1493,#ff69b4,#ffc0cb);color:white;text-align:center;padding:45px 15px;font-weight:900;font-size:22px;letter-spacing:1px}
-.poster-pink span{font-size:13px;font-weight:600;display:block;margin-top:6px;opacity:.9}
+.poster-pink{background:linear-gradient(135deg,#ff1493,#ff69b4,#ffc0cb);color:white;text-align:center;padding:45px 15px;font-weight:900;font-size:22px}
+.poster-pink span{font-size:13px;font-weight:600;display:block;margin-top:6px}
 .winner{background:linear-gradient(135deg,#ffe4ec,#ffb6d9);border:3px solid #ff1493;text-align:center;padding:16px;border-radius:14px}
-input,select{width:100%;padding:13px;margin:7px 0;border:2px solid #ffb6d9;border-radius:10px;font-size:14px}
+input,select{width:100%;padding:13px;margin:7px 0;border:2px solid #ffb6d9;border-radius:10px}
 .btn{width:100%;padding:14px;border:none;border-radius:30px;font-weight:900;color:white;font-size:16px;margin-top:10px;display:block;text-decoration:none;cursor:pointer}
 .btn-pink{background:linear-gradient(135deg,#ff1493,#ff4081)}
 .btn-blue{background:#1e3a8a}
-h3{color:#ff1493}
 </style>
 </head>
 <body>
@@ -34,13 +32,14 @@ h3{color:#ff1493}
 <div class="header-blue">
 <p>📍 Wabakuuli Stadium</p>
 <p>👕 Dress: Real Madrid Jersey (Madrind Jassey)</p>
+<p>📧 markmaron2343@gmail.com | 📞 0748162472</p>
 </div>
 
 <section>
 <div class="poster-pink">
 SHARO FOOD - COW + CAR + TROPHY
 <span>🐄 COW + 🚗 CAR + 🏆 TROPHY + 🍲 GOOD FOOD</span>
-<span>All in One Festival - Wabakuuli Stadium</span>
+<span>Wabakuuli Stadium</span>
 </div>
 </section>
 
@@ -54,13 +53,12 @@ SHARO FOOD - COW + CAR + TROPHY
 
 <section>
 <div class="inner">
-<h3>👕 Dress Code</h3>
+<h3 style="color:#ff1493">👕 Dress Code</h3>
 <p style="font-size:14px;margin-top:6px">✅ Wear Real Madrid Jersey (Madrind Jassey) - White</p>
-<p style="font-size:14px">✅ Good Food Presentation Only</p>
+<p style="font-size:14px">✅ Good Food Ready For All</p>
 <div class="poster-pink" style="margin-top:12px;border-radius:12px;padding:35px 15px;font-size:20px">
 GOOD FOOD + MADRID JERSEY
-<span>🍲 Pilau • Matooke • Luwombo • Chicken • Grills</span>
-<span>White Jersey Must - Wabakuuli Stadium</span>
+<span>Pilau • Matooke • Luwombo • Chicken • Grills</span>
 </div>
 </div>
 </section>
@@ -68,26 +66,25 @@ GOOD FOOD + MADRID JERSEY
 <section>
 <div class="inner">
 <h3 style="color:#1e3a8a">📝 REGISTER NOW - WhatsApp & Number</h3>
-<p style="font-size:11px;color:#666;margin-bottom:6px">Fill and tap REGISTER - it will send message to Sharo WhatsApp 0748162472</p>
+<p style="font-size:11px;color:#666">Fill and tap REGISTER - will send to WhatsApp 0748162472 + Email markmaron2343@gmail.com</p>
 <input id="name" placeholder="Your Full Name *">
 <input id="phone" placeholder="Your Phone *">
+<input id="email" placeholder="Your Email (optional)">
 <input id="dish" placeholder="Your Good Food Dish *">
 <select id="size">
 <option value="">Madrid Jersey Size *</option>
-<option>S - Small</option>
-<option>M - Medium</option>
-<option>L - Large</option>
-<option>XL - Extra Large</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
 </select>
 <button class="btn btn-pink" onclick="registerWA()">💬 REGISTER ON WHATSAPP - 0748162472</button>
-<a class="btn btn-blue" href="tel:0748162472">📞 CALL TO REGISTER - 0748162472</a>
+<a class="btn btn-blue" href="tel:0748162472">📞 CALL 0748162472</a>
+<a class="btn btn-blue" href="mailto:markmaron2343@gmail.com" style="background:#ff1493">📧 EMAIL: markmaron2343@gmail.com</a>
 </div>
 </section>
 
 <section style="text-align:center;background:#ff1493;color:white">
 <div class="inner">
-<p>❤️ Sharo wa Maron | Wabakuuli Stadium | 0748162472 ❤️</p>
-<p style="font-size:11px;margin-top:4px">Pink Edition - Your Favourite Color</p>
+<p>❤️ Sharo wa Maron | Wabakuuli Stadium</p>
+<p>📞 0748162472 | 📧 markmaron2343@gmail.com</p>
 </div>
 </section>
 
@@ -97,8 +94,9 @@ var n=document.getElementById('name').value.trim();
 var ph=document.getElementById('phone').value.trim();
 var d=document.getElementById('dish').value.trim();
 var s=document.getElementById('size').value;
+var em=document.getElementById('email').value.trim();
 if(!n||!ph||!d||!s){alert('Fill all: Name, Phone, Dish, Size');return;}
-var msg="Hello Sharo! I REGISTER FOR SHARO FOOD COMPETITION at Wabakuuli Stadium%0A%0AName: "+n+"%0APhone: "+ph+"%0ADish: "+d+"%0AJersey Size: "+s+" Real Madrid%0APrize: COW + CAR + TROPHY%0AColor: Pink Edition";
+var msg="Hello Sharo! REGISTER SHARO FOOD COMPETITION%0AName: "+n+"%0APhone: "+ph+"%0AEmail: "+em+"%0ADish: "+d+"%0AJersey: "+s+"%0AStadium: Wabakuuli%0AEmail Contact: markmaron2343@gmail.com%0APrize: COW+CAR";
 window.open("https://wa.me/256748162472?text="+msg,"_blank");
 }
 </script>
