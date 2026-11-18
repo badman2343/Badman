@@ -3,53 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sharo Food Competition</title>
+<title>Sharo Food Competition - Wabakuuli Stadium</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#fff0f5}
+nav{background:#1e3a8a;color:white;text-align:center;padding:14px}
+nav a{color:white;text-decoration:none;margin:0 14px;font-weight:bold;font-size:14px}
+.header-blue{background:#1e3a8a;color:white;text-align:center;padding:12px 10px}
+.header-blue p{font-size:13px}
+section{max-width:800px;margin:12px auto;background:white;padding:0;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
+.inner{padding:14px}
+.poster-pink{background:linear-gradient(135deg,#ff1493,#ff69b4,#ffc0cb);color:white;text-align:center;padding:45px 15px;font-weight:900;font-size:22px;letter-spacing:1px}
+.poster-pink span{font-size:13px;font-weight:600;display:block;margin-top:6px;opacity:.9}
+.winner{background:linear-gradient(135deg,#ffe4ec,#ffb6d9);border:3px solid #ff1493;text-align:center;padding:16px;border-radius:14px}
+input,select{width:100%;padding:13px;margin:7px 0;border:2px solid #ffb6d9;border-radius:10px;font-size:14px}
+.btn{width:100%;padding:14px;border:none;border-radius:30px;font-weight:900;color:white;font-size:16px;margin-top:10px;display:block;text-decoration:none;cursor:pointer}
+.btn-pink{background:linear-gradient(135deg,#ff1493,#ff4081)}
+.btn-blue{background:#1e3a8a}
+h3{color:#ff1493}
+</style>
 </head>
-<body style="margin:0;font-family:Arial;background:#fffbeb">
+<body>
 
-<div style="background:#1e3a8a;color:white;text-align:center;padding:25px">
-<h1>SHARO FOOD COMPETITION</h1>
-<p style="background:yellow;color:black;display:inline-block;padding:8px 15px;border-radius:20px;font-weight:900;margin-top:10px">WINNER: COW + CAR + TROPHY</p>
-<p style="margin-top:10px">📍 Wabakuuli Stadium | Madrid Jersey | Good Food</p>
-</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
 
-<div style="max-width:700px;margin:15px auto;background:white;padding:20px;border-radius:12px;text-align:center;border:3px solid orange">
-<h2>🏆 WINNER GETS</h2>
-<h1 style="font-size:36px">🐄 COW + 🚗 CAR</h1>
-<p>Good Food + Madrid Jersey Festival</p>
+<div class="header-blue">
 <p>📍 Wabakuuli Stadium</p>
+<p>👕 Dress: Real Madrid Jersey (Madrind Jassey)</p>
 </div>
 
-<div style="max-width:700px;margin:15px auto;background:white;padding:20px;border-radius:12px">
-<h2 style="color:#1e3a8a">👕 Dress Code</h2>
-<p>✅ Real Madrid Jersey (Madrind Jassey) - White - MUST</p>
-<p>✅ Good Food Presentation Only</p>
+<section>
+<div class="poster-pink">
+SHARO FOOD - COW + CAR + TROPHY
+<span>🐄 COW + 🚗 CAR + 🏆 TROPHY + 🍲 GOOD FOOD</span>
+<span>All in One Festival - Wabakuuli Stadium</span>
 </div>
+</section>
 
-<div style="max-width:700px;margin:15px auto;background:white;padding:20px;border-radius:12px">
-<h2 style="color:#1e3a8a">📝 REGISTER - WhatsApp & Number as you told</h2>
-<input id="n" placeholder="Full Name *" style="width:100%;padding:14px;margin:8px 0;border:2px solid orange;border-radius:10px">
-<input id="p" placeholder="Phone *" style="width:100%;padding:14px;margin:8px 0;border:2px solid orange;border-radius:10px">
-<input id="d" placeholder="Good Food Dish *" style="width:100%;padding:14px;margin:8px 0;border:2px solid orange;border-radius:10px">
-<select id="s" style="width:100%;padding:14px;margin:8px 0;border:2px solid orange;border-radius:10px">
+<section>
+<div class="inner winner">
+<p style="font-weight:900;color:#000">🏆 WINNER GETS AT WABAKUULI STADIUM</p>
+<p style="font-size:30px;font-weight:900;margin:6px 0;color:#000">🐄 COW + 🚗 CAR</p>
+<p style="color:#000">Good Food + Madrid Jersey Festival</p>
+</div>
+</section>
+
+<section>
+<div class="inner">
+<h3>👕 Dress Code</h3>
+<p style="font-size:14px;margin-top:6px">✅ Wear Real Madrid Jersey (Madrind Jassey) - White</p>
+<p style="font-size:14px">✅ Good Food Presentation Only</p>
+<div class="poster-pink" style="margin-top:12px;border-radius:12px;padding:35px 15px;font-size:20px">
+GOOD FOOD + MADRID JERSEY
+<span>🍲 Pilau • Matooke • Luwombo • Chicken • Grills</span>
+<span>White Jersey Must - Wabakuuli Stadium</span>
+</div>
+</div>
+</section>
+
+<section>
+<div class="inner">
+<h3 style="color:#1e3a8a">📝 REGISTER NOW - WhatsApp & Number</h3>
+<p style="font-size:11px;color:#666;margin-bottom:6px">Fill and tap REGISTER - it will send message to Sharo WhatsApp 0748162472</p>
+<input id="name" placeholder="Your Full Name *">
+<input id="phone" placeholder="Your Phone *">
+<input id="dish" placeholder="Your Good Food Dish *">
+<select id="size">
 <option value="">Madrid Jersey Size *</option>
-<option>S</option><option>M</option><option>L</option><option>XL</option>
+<option>S - Small</option>
+<option>M - Medium</option>
+<option>L - Large</option>
+<option>XL - Extra Large</option>
 </select>
-
-<button onclick="go()" style="width:100%;padding:16px;background:#16a34a;color:white;border:none;border-radius:30px;font-weight:900;font-size:18px;margin-top:10px">💬 REGISTER ON WHATSAPP 0748162472</button>
-
-<a href="tel:0748162472" style="display:block;text-align:center;width:100%;padding:16px;background:#dc2626;color:white;border-radius:30px;font-weight:900;text-decoration:none;margin-top:10px;font-size:18px">📞 CALL 0748162472</a>
+<button class="btn btn-pink" onclick="registerWA()">💬 REGISTER ON WHATSAPP - 0748162472</button>
+<a class="btn btn-blue" href="tel:0748162472">📞 CALL TO REGISTER - 0748162472</a>
 </div>
+</section>
+
+<section style="text-align:center;background:#ff1493;color:white">
+<div class="inner">
+<p>❤️ Sharo wa Maron | Wabakuuli Stadium | 0748162472 ❤️</p>
+<p style="font-size:11px;margin-top:4px">Pink Edition - Your Favourite Color</p>
+</div>
+</section>
 
 <script>
-function go(){
-var n=document.getElementById('n').value;
-var p=document.getElementById('p').value;
-var d=document.getElementById('d').value;
-var s=document.getElementById('s').value;
-if(!n||!p||!d||!s){alert('Fill all');return;}
-var t="Hello Sharo! REGISTER SHARO FOOD COMPETITION%0AName: "+n+"%0APhone: "+p+"%0ADish: "+d+"%0AJersey: "+s+"%0AStadium: Wabakuuli%0APrize: COW+CAR";
-window.open("https://wa.me/256748162472?text="+t,"_blank");
+function registerWA(){
+var n=document.getElementById('name').value.trim();
+var ph=document.getElementById('phone').value.trim();
+var d=document.getElementById('dish').value.trim();
+var s=document.getElementById('size').value;
+if(!n||!ph||!d||!s){alert('Fill all: Name, Phone, Dish, Size');return;}
+var msg="Hello Sharo! I REGISTER FOR SHARO FOOD COMPETITION at Wabakuuli Stadium%0A%0AName: "+n+"%0APhone: "+ph+"%0ADish: "+d+"%0AJersey Size: "+s+" Real Madrid%0APrize: COW + CAR + TROPHY%0AColor: Pink Edition";
+window.open("https://wa.me/256748162472?text="+msg,"_blank");
 }
 </script>
 
